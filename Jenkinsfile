@@ -12,9 +12,15 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
+                which python3
+                which pip
+                '''
+                sh '''
                 cd myapp
                 python3 -m venv .venv
                 bash ./.venv/bin/activate
+                which python3
+                which pip
                 pip install -r requirements.txt
                 '''
             }
