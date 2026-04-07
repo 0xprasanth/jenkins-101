@@ -12,10 +12,6 @@ pipeline {
             steps {
                 echo "Building.."
                 sh '''
-                which python3
-                which pip
-                '''
-                sh '''
                 cd myapp
                 python3 -m venv .venv
                 source ./.venv/bin/activate
@@ -30,6 +26,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 cd myapp
+                source ./.venv/bin/activate
                 python3 hello.py
                 python3 hello.py --name=Brad
                 '''
